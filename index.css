@@ -1,0 +1,129 @@
+/* ---------- Theme: colours taken from the company logo ---------- */
+:root {
+  color-scheme: dark;       /* dark date picker + dropdowns */
+  --brand: #148a86;         /* logo teal */
+  --brand-dark: #1aa09b;    /* hover */
+  --brand-text: #3cc4bf;    /* teal for text/icons on dark */
+  --brand-soft: rgba(34, 170, 165, 0.16);
+  --accent: #f47b64;        /* logo coral */
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-2: #1c232d;
+  --text: #e6edf3;
+  --muted: #8b98a8;
+  --border: #2a3340;
+  --danger: #f87171;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+h1, h2, h3, p { margin: 0; }
+
+.app-shell { display: flex; min-height: 100vh; }
+.app-main { flex: 1; min-width: 0; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.page-head h1 { font-size: 1.6rem; }
+.page-head p { color: var(--muted); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: var(--brand); color: #fff; }
+.btn-primary:hover { background: var(--brand-dark); }
+.btn-outline { background: var(--surface); color: var(--text); border-color: var(--border); }
+.btn-outline:hover:not(:disabled) { border-color: var(--brand-text); color: var(--brand-text); }
+.btn-danger { background: #dc2626; color: #fff; }
+.btn-danger:hover { background: #ef4444; }
+
+.icon-btn {
+  display: inline-flex;
+  padding: 7px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.icon-btn:hover { color: var(--brand-text); border-color: var(--brand-text); }
+.icon-btn.danger:hover { color: var(--danger); border-color: var(--danger); }
+
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--brand-text);
+  outline-offset: 1px;
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.priority-low { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
+.priority-medium { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+.priority-high { background: rgba(248, 113, 113, 0.16); color: #f87171; }
+
+/* Status dropdown coloured like a badge */
+.status-select {
+  padding: 5px 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.status-pending { background: rgba(244, 123, 100, 0.18); color: #ff9b87; }
+.status-in-progress { background: rgba(129, 140, 248, 0.18); color: #a5b4fc; }
+.status-completed { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
+
+.overdue { color: var(--danger); font-weight: 600; }
+
+/* ---------- Form controls (shared) ---------- */
+input, select, textarea {
+  font: inherit;
+  color: var(--text);
+}
+
+@media (max-width: 600px) {
+  .container { padding: 16px 12px 40px; }
+  .page-head .btn { width: 100%; }
+}
